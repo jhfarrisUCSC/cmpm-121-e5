@@ -7,6 +7,7 @@ import { LevelPicker } from "./LevelPicker.tsx";
 import { StatusBar } from "./StatusBar.tsx";
 import { TileClicks } from "./tileClicks.ts";
 import { useSessionState } from "./useSessionState.ts";
+import { GoalTracker } from "./GoalTracker.tsx";
 
 // Composite: the whole screen is one component made of smaller ones, each of
 // which may be made of smaller ones still (Board is made of Tiles).
@@ -41,6 +42,7 @@ export function App({ session }: { session: Session }) {
           puzzle={state.puzzle}
           par={LEVELS[state.level].par.length}
         />
+        <GoalTracker puzzle={state.puzzle} />
         {solved && (
           <p className="banner" role="status">
             Solved in {state.puzzle.moves} moves. {!last && (
